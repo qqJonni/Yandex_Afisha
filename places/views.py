@@ -22,6 +22,7 @@ def serialize_post(post):
     return post
 
 
+
 def details_json(request, pk):
     post = get_object_or_404(PlaceName, pk=pk)
     post_data = serialize_post(post)
