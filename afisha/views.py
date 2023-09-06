@@ -5,6 +5,10 @@ import json
 from places.models import PlaceName, Image
 
 
+def start(request):
+    return render(request, 'start.html')
+
+
 def serialize_post(post):
     redirect_url = reverse("details-json", args=[post.pk])
 

@@ -20,12 +20,13 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
-from afisha.views import index
+from afisha.views import index, start
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", index, name="index"),
+    path("index/", index, name="index"),
+    path('', start, name='start'),
     path('places/', include('places.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('tinymce/', include('tinymce.urls')),
