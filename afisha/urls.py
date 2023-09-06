@@ -29,7 +29,6 @@ urlpatterns = [
     path('places/', include('places.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('tinymce/', include('tinymce.urls')),
-    path('users/', include('users.urls')),
 ]
 
 if settings.DEBUG:

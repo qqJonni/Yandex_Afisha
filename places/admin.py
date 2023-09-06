@@ -18,7 +18,7 @@ class ImageInline(SortableInlineAdminMixin, admin.TabularInline):
 
 @admin.register(PlaceName)
 class PostAdmin(SortableAdminBase, admin.ModelAdmin):
-    fields = ["title", "short_description", "long_description", "longitude", "latitude", "slug"]
+    fields = ["title", "short_description", "long_description", "longitude", "latitude"]
     list_display = ['pk', 'title']
     inlines = [ImageInline, ]
 
