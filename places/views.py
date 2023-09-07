@@ -10,10 +10,10 @@ def serialize_post(post):
     post = {
         "title": post.title,
         "imgs": [
-            f'{pic.picture.url}' for pic in post.pics.all().order_by('numb')
+            pic.picture.url for pic in post.pics.all().order_by('numb')
         ],
-        "short_description": post.short_description,
-        "long_description": post.long_description,
+        "description_short": post.short_description,
+        "description_long": post.long_description,
         "coordinates": {
             "longitude": post.longitude,
             "latitude": post.latitude
@@ -22,9 +22,8 @@ def serialize_post(post):
     return post
 
 
-
 def details_json(request, pk):
-    post = get_object_or_404(PlaceName, pk=pk)
+    post = get_object_or_404(PlaceName.objects.select_related(), pk=pk)
     post_data = serialize_post(post)
     return HttpResponse(JsonResponse(post_data, safe=False, json_dumps_params={'ensure_ascii': False, 'indent': 4}), content_type="application/json")
 

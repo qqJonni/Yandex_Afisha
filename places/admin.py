@@ -25,6 +25,8 @@ class PostAdmin(SortableAdminBase, admin.ModelAdmin):
 
 @admin.register(Image)
 class ImageAdmin(admin.ModelAdmin):
+    raw_id_fields = ['place']
+    list_display = ['numb', 'place']
 
     def preview_photo(self, obj):
         return obj.photo_preview

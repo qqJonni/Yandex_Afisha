@@ -49,15 +49,21 @@
         <img class="d-block select-place-prompt mb-4" src="{% static 'hand-pointer-regular.svg' %}" alt="Select place">
         <h4>Выберите место на карте</h4>
       </div>
+
       <div class="align-items-center justify-content-center d-flex" v-if="loading" style="height: 100%;">
         <div class="spinner-grow text-light" style="width: 3rem; height: 3rem;" role="status">
           <span class="sr-only">Loading...</span>
         </div>
       </div>
+
       <div class="place-description" v-if="selectedPlace">
+
         <img v-if="mainPhotoSrc" v-bind:src="mainPhotoSrc" class="d-block shadow mb-3 rounded" v-bind:alt="selectedPlace.title">
+
         <h5 class="mb-3">{% verbatim %}{{ selectedPlace.title }}{% endverbatim %}</h5>
+
         <p>{% verbatim %}{{ selectedPlace.short_description }}{% endverbatim %}</p>
+
         <div id="place-photos" class="carousel slide mb-3 shadow" data-ride="carousel" data-interval="5000">
           <ol class="carousel-indicators">
             <template v-for="(img, index) in carouselImgs" :key="img">
@@ -82,6 +88,7 @@
             </a>
           </template>
         </div>
+
         <div v-html="selectedPlace.long_description"></div>
       </div>
     </div>

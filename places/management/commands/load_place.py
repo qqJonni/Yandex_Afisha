@@ -56,7 +56,7 @@ def upload_data_to_db(url):
         latitude=lat
     )
     for img in img_names:
-        img_upload = Image.objects.create(place_name=post)
+        img_upload = Image.objects.create(place=post)
         with open(f'{img_path}/{img}', 'rb') as f:
             file = f.read()
             img_upload.picture.save(img, ContentFile(file), save=True)
